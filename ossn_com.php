@@ -24,10 +24,10 @@ function blog_init() {
 		}
 		ossn_register_callback('user', 'delete', 'ossn_user_blog_delete');
 		ossn_register_callback('page', 'load:profile', 'ossn_profile_blog_menu');
-		
+
 		ossn_extend_view('css/ossn.default', 'css/blog');
 		ossn_register_page('blog', 'ossn_blog_page_handler');
-		
+
 		ossn_register_sections_menu('newsfeed', array(
 				'text' => ossn_print('blog:all'),
 				'url' => ossn_site_url('blog/all'),
@@ -41,11 +41,11 @@ function blog_init() {
 				'icon' => true,
 		));
 }
-/** 
+/**
  * Get blog object
- * 
+ *
  * @param integer $guid A blog guid
- * 
+ *
  * @return object|boolean
  */
 function ossn_get_blog($guid) {
@@ -57,11 +57,11 @@ function ossn_get_blog($guid) {
 		}
 		return false;
 }
-/** 
+/**
  * Blog pages
- * 
+ *
  * @param array $pages A pages
- * 
+ *
  * @return mixdata
  */
 function ossn_blog_page_handler($pages) {
@@ -81,7 +81,7 @@ function ossn_blog_page_handler($pages) {
 						if(!$blog) {
 								ossn_error_page();
 						}
-						
+
 						$title               = $blog->title;
 						$contents['content'] = ossn_plugin_view('blog/pages/view', array(
 								'blog' => $blog
@@ -92,7 +92,7 @@ function ossn_blog_page_handler($pages) {
 				case 'edit':
 						if(!ossn_isLoggedin()){
 							ossn_error_page();
-						}				
+						}
 						$blog = ossn_get_blog($pages[1]);
 						if(!$blog) {
 								ossn_error_page();
@@ -127,6 +127,12 @@ function ossn_blog_page_handler($pages) {
 								'blogs' => $blogs,
 								'count' => $count
 						));
+
+						$contents['content'] .= "<div class=\"ossn-widget\">\n<div class=\"widget-heading\">\n";
+						$contents['content'] .= $count .' post';
+						if ($count > 1) {$contents['content'] .= 's';}
+						$contents['content'] .= "</div>\n</div>\n";
+
 						$content             = ossn_set_page_layout('newsfeed', $contents);
 						echo ossn_view_page($title, $content);
 						break;
