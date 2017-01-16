@@ -2,10 +2,10 @@
 <component xmlns="http://www.opensource-socialnetwork.org/v/3.0">
     <name>Blog for Users</name>
     <id>Blog</id>
-    <author>Core Team</author>
+    <author>siteLease Web Solutions</author>
     <description>Allow user to add blog entries to their profile. The original plugin was created by the core team, but I updated the english language file for easier understanding (http://www.sitelease.ca)</description>
     <license>GNU General Public License, version 2</license>
-    <author_url>https://www.softlab24.com/</author_url>
+    <author_url>https://www.sitelease.ca/</author_url>
     <license_url>http://opensource-socialnetwork.org/licence/</license_url>
     <version>1.0.1</version>
 	<requires>
