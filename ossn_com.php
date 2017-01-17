@@ -132,7 +132,6 @@ function ossn_blog_page_handler($pages) {
 						$contents['content'] .= $count .' post';
 						if ($count > 1) {$contents['content'] .= 's';}
 						$contents['content'] .= "</div>\n</div>\n";
-
 						$content             = ossn_set_page_layout('newsfeed', $contents);
 						echo ossn_view_page($title, $content);
 						break;
