@@ -128,6 +128,7 @@ function ossn_blog_page_handler($pages) {
 								'count' => $count
 						));
 
+						// Added footer to indicate the blog entry count
 						$contents['content'] .= "<div class=\"ossn-widget\">\n<div class=\"widget-heading\">\n";
 						$contents['content'] .= $count .' post';
 						if ($count > 1) {$contents['content'] .= 's';}
